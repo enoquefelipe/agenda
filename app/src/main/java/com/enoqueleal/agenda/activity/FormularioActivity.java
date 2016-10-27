@@ -1,15 +1,15 @@
-package com.enoqueleal.agenda;
+package com.enoqueleal.agenda.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import com.enoqueleal.agenda.modelo.Aluno;
+import com.enoqueleal.agenda.helper.FormularioHelper;
+import com.enoqueleal.agenda.R;
+import com.enoqueleal.agenda.model.Aluno;
 
 public class FormularioActivity extends AppCompatActivity {
 

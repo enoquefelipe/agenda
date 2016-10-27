@@ -1,8 +1,11 @@
-package com.enoqueleal.agenda;
+package com.enoqueleal.agenda.helper;
 
 
 import android.widget.EditText;
-import com.enoqueleal.agenda.modelo.Aluno;
+
+import com.enoqueleal.agenda.R;
+import com.enoqueleal.agenda.activity.FormularioActivity;
+import com.enoqueleal.agenda.model.Aluno;
 
 /**
  * Created by enoque.santos on 27/10/2016.

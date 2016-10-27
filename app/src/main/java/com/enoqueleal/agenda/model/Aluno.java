@@ -1,4 +1,4 @@
-package com.enoqueleal.agenda.modelo;
+package com.enoqueleal.agenda.model;
 
 /**
  * Created by enoque.santos on 27/10/2016.
