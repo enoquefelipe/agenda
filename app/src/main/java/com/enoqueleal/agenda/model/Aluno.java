@@ -33,4 +33,9 @@ public class Aluno {
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
+
+    @Override
+    public String toString() {
+        return nome + " " + sobrenome;
+    }
 }
