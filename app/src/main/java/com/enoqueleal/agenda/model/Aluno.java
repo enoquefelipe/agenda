@@ -1,20 +1,22 @@
 package com.enoqueleal.agenda.model;
 
+import java.io.Serializable;
+
 /**
  * Created by enoque.santos on 27/10/2016.
  */
 
-public class Aluno {
+public class Aluno implements Serializable {
 
-    private double id;
+    private Long id;
     private String nome;
     private String sobrenome;
 
-    public double getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

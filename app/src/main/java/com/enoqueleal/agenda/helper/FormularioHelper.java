@@ -13,18 +13,25 @@ import com.enoqueleal.agenda.model.Aluno;
 
 public class FormularioHelper {
 
+    private Aluno aluno;
     private EditText campoNome;
     private EditText campoSobrenome;
 
     public FormularioHelper(FormularioActivity activity){
         campoNome =      (EditText) activity.findViewById(R.id.formulario_nome);
         campoSobrenome = (EditText) activity.findViewById(R.id.formulario_sobrenome);
+        aluno = new Aluno();
     }
 
     public Aluno pegaAluno() {
-        Aluno aluno = new Aluno ();
         aluno.setNome(campoNome.getText().toString());
         aluno.setSobrenome(campoSobrenome.getText().toString());
         return aluno;
+    }
+
+    public void preencheFormulario(Aluno aluno)  {
+        campoNome.setText(aluno.getNome());
+        campoSobrenome.setText(aluno.getSobrenome());
+        this.aluno = aluno;
     }
 }
