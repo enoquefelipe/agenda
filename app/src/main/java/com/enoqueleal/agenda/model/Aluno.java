@@ -3,6 +3,7 @@ package com.enoqueleal.agenda.model;
 import java.io.Serializable;
 
 /**
+ * Classe responsável por representar as informaçõs de passoas como Nome e Sobrenome.
  * Created by enoque.santos on 27/10/2016.
  */
 
@@ -12,6 +13,8 @@ public class Aluno implements Serializable {
     private String nome;
     private String sobrenome;
 
+
+    /* Getters and Setters  */
     public Long getId() {
         return id;
     }
