@@ -22,12 +22,22 @@ public class AlunoDao extends SQLiteOpenHelper{
         super(context, "Agenda", null, 1);
     }
 
+    /**
+     * Método é executado quando a app é inicializada e é responsável por criar a tabeka alunos
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE Alunos (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, sobrenome TEXT);";
         db.execSQL(sql);
     }
 
+    /**
+     * Método será executado se a app estiver em uma nova versão e é responsável por excluir a tabela existente
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String sql = "DROP TABLE IF EXISTS Alunos";
@@ -35,12 +45,20 @@ public class AlunoDao extends SQLiteOpenHelper{
         onCreate(db);
     }
 
+    /**
+     * Método responsável por conectar ao SQLite e realizar a persistencia
+     * @param aluno
+     */
     public void insere(Aluno aluno)  {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues dados = pegaDadosDoAluno(aluno);
         db.insert("Alunos", null, dados );
     }
 
+    /**
+     * Método responsável por conectar ao SQLite e realizar uma busca dos registros armazenados
+     * @return
+     */
     public List<Aluno> buscaAlunos()  {
         String sql = "SELECT * FROM Alunos;";
         SQLiteDatabase db = getReadableDatabase();
@@ -58,12 +76,20 @@ public class AlunoDao extends SQLiteOpenHelper{
         return alunos;
     }
 
+    /**
+     * Método responsável por conectar ao SQLite e realizar delete de dados
+     * @param aluno
+     */
     public void deleta(Aluno aluno) {
         SQLiteDatabase db = getWritableDatabase();
         String [] params = {aluno.getId().toString()};
         db.delete("Alunos", "id = ?", params);
     }
 
+    /**
+     * Método responsável por conectar ao SQLite e realizar update nos de dados
+     * @param aluno
+     */
     public void altera(Aluno aluno) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues dados = pegaDadosDoAluno(aluno);
@@ -71,6 +97,11 @@ public class AlunoDao extends SQLiteOpenHelper{
         db.update("Alunos", dados, "id = ?", params);
     }
 
+    /**
+     * Método responsável por settar dados do aluno em um ContentValues
+     * @param aluno
+     * @return
+     */
     @NonNull
     private ContentValues pegaDadosDoAluno(Aluno aluno) {
         ContentValues dados = new ContentValues();
