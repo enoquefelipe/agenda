@@ -69,7 +69,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, final ContextMenu.ContextMenuInfo menuInfo)  {
-        MenuItem deletar = menu.add("Deletar");
+        MenuItem deletar = menu.add("Excluir");
         deletar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -80,7 +80,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 dao.deleta(aluno);
                 dao.close();
 
-                Toast.makeText(ListaAlunosActivity.this, aluno.getNome() + " foi deletado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListaAlunosActivity.this, aluno.getNome() + " foi excluido", Toast.LENGTH_SHORT).show();
                 carregaLista();
                 return false;
             }
