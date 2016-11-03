@@ -18,11 +18,19 @@ import com.enoqueleal.agenda.model.Aluno;
 
 import java.util.List;
 
+/**
+ * Classe responsável por representar a Activity da lista de Alunos.
+ * Created by enoque.santos on 27/10/2016.
+ */
 public class ListaAlunosActivity extends AppCompatActivity {
 
 
     private ListView listaAlunos;
 
+    /**
+     * Méotodo responsável pela a inicialização da view lista de alunos.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,12 +60,19 @@ public class ListaAlunosActivity extends AppCompatActivity {
         registerForContextMenu(listaAlunos);
     }
 
+    /**
+     * Esse método e executado durante o ciclo de vida da app,
+     * e o mesmo esta carregando a lista de alunos para a view.
+     */
     @Override
         public void onResume(){
         super.onResume();
         carregaLista();
     }
 
+    /**
+     * Método responsável por instanciar um DAO e carregar a lista de alunos.
+     */
     private void carregaLista() {
         AlunoDao dao = new AlunoDao(this);
         List<Aluno> alunos = dao.buscaAlunos();
@@ -67,6 +82,12 @@ public class ListaAlunosActivity extends AppCompatActivity {
         listaAlunos.setAdapter(adapter);
     }
 
+    /**
+     * Método responsável por criar um menu de contexto para a lista de alunos
+     * @param menu
+     * @param v
+     * @param menuInfo
+     */
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, final ContextMenu.ContextMenuInfo menuInfo)  {
         MenuItem deletar = menu.add("Excluir");

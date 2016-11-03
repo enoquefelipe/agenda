@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe responsável por auxiliar a activity FormularioActivity.
+ * Classe responsável por representar o DAO do Objeto Aluno.
  * Created by enoque.santos on 27/10/2016.
  */
 
