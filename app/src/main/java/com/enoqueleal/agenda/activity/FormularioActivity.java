@@ -18,12 +18,18 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+/**
+ * Classe responsável por representar a Activity formulário de cadastro de alunos.
+ * Created by enoque.santos on 27/10/2016.
+ */
 public class FormularioActivity extends AppCompatActivity {
 
     private FormularioHelper helper;
 
-    private GoogleApiClient client;
-
+    /**
+     * Méotodo responsável pela a inicialização da view formulario de cadastro.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +44,11 @@ public class FormularioActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Métodos responsável por criar um menu na barra de tarefas da aplicação.
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -45,6 +56,11 @@ public class FormularioActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * Método responsável pelo a ação do botão salvar.
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
