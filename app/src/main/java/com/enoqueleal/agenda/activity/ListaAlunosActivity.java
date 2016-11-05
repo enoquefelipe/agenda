@@ -1,8 +1,11 @@
 package com.enoqueleal.agenda.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Browser;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -95,6 +98,29 @@ public class ListaAlunosActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         final Aluno aluno = (Aluno) listaAlunos.getItemAtPosition(info.position);
 
+        MenuItem itemLigar = menu.add("Ligar");
+        itemLigar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (ActivityCompat.checkSelfPermission(ListaAlunosActivity.this, Manifest.permission.CALL_PHONE)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(ListaAlunosActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 123);
+                } else {
+                    Intent intentLigar = new Intent(Intent.ACTION_CALL);
+                    intentLigar.setData(Uri.parse("tel:" + "11 98453-5166"));
+                    startActivity(intentLigar);
+                    return false;
+                }
+
+                Intent intentLigar = new Intent(Intent.ACTION_CALL);
+                intentLigar.setData(Uri.parse("tel:" + "11 98453-5166"));
+
+                startActivity(intentLigar);
+                return false;
+            }
+        });
+
         MenuItem itemSMS = menu.add("Enviar SMS");
         Intent intentSMS = new Intent(Intent.ACTION_VIEW) ;
         intentSMS.setData(Uri.parse("sms:" + "11 98453-5166"));
@@ -128,5 +154,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 return false;
             }
         });
+
     }
 }
