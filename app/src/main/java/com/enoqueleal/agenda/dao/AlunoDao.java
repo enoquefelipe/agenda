@@ -20,7 +20,7 @@ import java.util.List;
 public class AlunoDao extends SQLiteOpenHelper{
 
     public AlunoDao(Context context) {
-        super(context, "Agenda", null, 1);
+        super(context, "Agenda", null, 2);
     }
 
     /**
@@ -29,7 +29,7 @@ public class AlunoDao extends SQLiteOpenHelper{
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE Alunos (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, sobrenome TEXT);";
+        String sql = "CREATE TABLE Alunos (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, sobrenome TEXT, site TEXT);";
         db.execSQL(sql);
     }
 
@@ -71,6 +71,7 @@ public class AlunoDao extends SQLiteOpenHelper{
             aluno.setId(c.getLong(c.getColumnIndex("id")));
             aluno.setNome(c.getString(c.getColumnIndex("nome")));
             aluno.setSobrenome(c.getString(c.getColumnIndex("sobrenome")));
+            aluno.setSite(c.getString(c.getColumnIndex("site")));
             alunos.add(aluno);
         }
         c.close();
@@ -108,6 +109,7 @@ public class AlunoDao extends SQLiteOpenHelper{
         ContentValues dados = new ContentValues();
         dados.put("nome", aluno.getNome());
         dados.put("sobrenome", aluno.getSobrenome());
+        dados.put("site", aluno.getSite());
         return dados;
     }
 }

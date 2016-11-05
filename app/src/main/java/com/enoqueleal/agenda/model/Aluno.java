@@ -12,7 +12,7 @@ public class Aluno implements Serializable {
     private Long id;
     private String nome;
     private String sobrenome;
-
+    private String site;
 
     /* Getters and Setters  */
     public Long getId() {
@@ -37,6 +37,14 @@ public class Aluno implements Serializable {
 
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
+    }
+
+    public String getSite() {
+        return site;
+    }
+
+    public void setSite(String site) {
+        this.site = site;
     }
 
     @Override
