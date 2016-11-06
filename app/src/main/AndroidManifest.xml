@@ -12,11 +12,11 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.FormularioActivity"
-            android:label="Formulario">
+            android:label="Agenda">
         </activity>
         <activity
             android:name=".activity.ListaAlunosActivity"
-            android:label="Lista de alunos">
+            android:label="Agenda">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
