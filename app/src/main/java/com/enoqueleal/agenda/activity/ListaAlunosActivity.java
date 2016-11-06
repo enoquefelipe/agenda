@@ -149,7 +149,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 dao.deleta(aluno);
                 dao.close();
 
-                Toast.makeText(ListaAlunosActivity.this, aluno.getNome() + " foi excluido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListaAlunosActivity.this, "Operação realizada com sucesso!", Toast.LENGTH_SHORT).show();
                 carregaLista();
                 return false;
             }
