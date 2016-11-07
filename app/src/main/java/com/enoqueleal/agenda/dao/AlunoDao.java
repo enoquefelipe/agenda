@@ -20,7 +20,7 @@ import java.util.List;
 public class AlunoDao extends SQLiteOpenHelper{
 
     public AlunoDao(Context context) {
-        super(context, "Agenda", null, 2);
+        super(context, "Agenda", null, 3);
     }
 
     /**
@@ -29,7 +29,7 @@ public class AlunoDao extends SQLiteOpenHelper{
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE Alunos (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, sobrenome TEXT, site TEXT);";
+        String sql = "CREATE TABLE Alunos (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, sobrenome TEXT, site TEXT, caminhoFoto TEXT);";
         db.execSQL(sql);
     }
 
@@ -41,7 +41,14 @@ public class AlunoDao extends SQLiteOpenHelper{
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "DROP TABLE IF EXISTS Alunos";
+      String sql = "DROP TABLE IF EXISTS Alunos";
+//        String sql = "";
+//        switch (oldVersion) {
+//            case 2:
+//                sql = "ALTER TABLE Alunos ADD COLUMN caminhoFoto TEXT";
+//                db.execSQL(sql); // indo para versao 2
+//                break;
+//        }
         db.execSQL(sql);
         onCreate(db);
     }
@@ -72,6 +79,7 @@ public class AlunoDao extends SQLiteOpenHelper{
             aluno.setNome(c.getString(c.getColumnIndex("nome")));
             aluno.setSobrenome(c.getString(c.getColumnIndex("sobrenome")));
             aluno.setSite(c.getString(c.getColumnIndex("site")));
+            aluno.setCaminhoFoto(c.getString(c.getColumnIndex("caminhoFoto")));
             alunos.add(aluno);
         }
         c.close();
@@ -110,6 +118,7 @@ public class AlunoDao extends SQLiteOpenHelper{
         dados.put("nome", aluno.getNome());
         dados.put("sobrenome", aluno.getSobrenome());
         dados.put("site", aluno.getSite());
+        dados.put("caminhoFoto", aluno.getCaminhoFoto());
         return dados;
     }
 }

@@ -13,6 +13,7 @@ public class Aluno implements Serializable {
     private String nome;
     private String sobrenome;
     private String site;
+    private String caminhoFoto;
 
     /* Getters and Setters  */
     public Long getId() {
@@ -45,6 +46,14 @@ public class Aluno implements Serializable {
 
     public void setSite(String site) {
         this.site = site;
+    }
+
+    public String getCaminhoFoto() {
+        return caminhoFoto;
+    }
+
+    public void setCaminhoFoto(String caminhoFoto) {
+        this.caminhoFoto = caminhoFoto;
     }
 
     @Override

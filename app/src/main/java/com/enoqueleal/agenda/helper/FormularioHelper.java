@@ -1,7 +1,10 @@
 package com.enoqueleal.agenda.helper;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.enoqueleal.agenda.R;
 import com.enoqueleal.agenda.activity.FormularioActivity;
@@ -18,6 +21,7 @@ public class FormularioHelper {
     private EditText campoNome;
     private EditText campoSobrenome;
     private EditText campoSite;
+    private ImageView campoFoto;
 
     /**
      *
@@ -26,7 +30,8 @@ public class FormularioHelper {
     public FormularioHelper(FormularioActivity activity){
         campoNome =         (EditText) activity.findViewById(R.id.formulario_nome);
         campoSobrenome =    (EditText) activity.findViewById(R.id.formulario_sobrenome);
-        campoSite =              (EditText) activity.findViewById(R.id.formulario_site);
+        campoSite =         (EditText) activity.findViewById(R.id.formulario_site);
+        campoFoto =         (ImageView) activity.findViewById(R.id.formulario_foto);
         aluno = new Aluno();
     }
 
@@ -38,6 +43,7 @@ public class FormularioHelper {
         aluno.setNome(campoNome.getText().toString());
         aluno.setSobrenome(campoSobrenome.getText().toString());
         aluno.setSite(campoSite.getText().toString());
+        aluno.setCaminhoFoto((String)campoFoto.getTag());
         return aluno;
     }
 
@@ -49,6 +55,17 @@ public class FormularioHelper {
         campoNome.setText(aluno.getNome());
         campoSobrenome.setText(aluno.getSobrenome());
         campoSite.setText(aluno.getSite());
+        carregaImagem(aluno.getCaminhoFoto());
         this.aluno = aluno;
+    }
+
+    public void carregaImagem(String caminhoFoto) {
+        if (caminhoFoto != null){
+            Bitmap bitmap = BitmapFactory.decodeFile(caminhoFoto);
+            Bitmap bitmapReduzido = Bitmap.createScaledBitmap(bitmap, 300, 300, true);
+            campoFoto.setImageBitmap(bitmapReduzido);
+            campoFoto.setScaleType(ImageView.ScaleType.FIT_XY);
+            campoFoto.setTag(caminhoFoto);
+        }
     }
 }
