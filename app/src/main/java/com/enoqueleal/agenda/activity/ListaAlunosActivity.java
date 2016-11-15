@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.enoqueleal.agenda.R;
+import com.enoqueleal.agenda.adapter.AlunosAdapter;
 import com.enoqueleal.agenda.dao.AlunoDao;
 import com.enoqueleal.agenda.model.Aluno;
 
@@ -28,7 +29,6 @@ import java.util.List;
  * Created by enoque.santos on 27/10/2016.
  */
 public class ListaAlunosActivity extends AppCompatActivity {
-
 
     private ListView listaAlunos;
 
@@ -84,7 +84,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
         dao.close();
 
 //      ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos);
-        ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.activity_list_item, alunos);
+        AlunosAdapter adapter = new AlunosAdapter(this, alunos);
         listaAlunos.setAdapter(adapter);
     }
 
