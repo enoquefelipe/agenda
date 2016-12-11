@@ -8,11 +8,17 @@ import java.net.URL;
 import java.util.Scanner;
 
 /**
+ * Classe responsável pela a implentação da conexão com o webservices, leitura e envio de informaçãos em json
  * Created by enoque.santos on 11/12/2016.
  */
 
 public class WebClient {
 
+    /**
+     * Método principal responsável pela a comunicação com webservice
+     * @param json
+     * @return
+     */
     public String post(String json) {
         try {
             URL url = new URL("https://www.caelum.com.br/mobile");
