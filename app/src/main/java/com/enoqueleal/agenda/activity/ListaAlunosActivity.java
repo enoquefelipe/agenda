@@ -20,9 +20,11 @@ import android.widget.Toast;
 
 import com.enoqueleal.agenda.R;
 import com.enoqueleal.agenda.adapter.AlunosAdapter;
+import com.enoqueleal.agenda.client.WebClient;
 import com.enoqueleal.agenda.converter.AlunoConverter;
 import com.enoqueleal.agenda.dao.AlunoDao;
 import com.enoqueleal.agenda.model.Aluno;
+import com.enoqueleal.agenda.task.EnviaAlunosTask;
 
 import java.util.List;
 
@@ -171,14 +173,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_enviar_notas:
-                AlunoDao dao = new AlunoDao(this);
-                List<Aluno> alunos = dao.buscaAlunos();
-                dao.close();
-
-                AlunoConverter conversor = new AlunoConverter();
-                String json = conversor.converteParaJSON(alunos);
-
-                Toast.makeText(this, json, Toast.LENGTH_LONG).show();
+                new EnviaAlunosTask(this).execute();
                 break;
         }
         return super.onOptionsItemSelected(item);
