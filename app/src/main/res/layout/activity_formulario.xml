@@ -32,7 +32,6 @@
         </RelativeLayout>
 
         <EditText
-            android:hint="Nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -40,10 +39,10 @@
             android:ems="10"
             android:id="@+id/formulario_nome"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:hint="@string/txt_nome" />
 
         <EditText
-            android:hint="Sobrenome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
@@ -51,10 +50,10 @@
             android:layout_margin="10dp"
             android:id="@+id/formulario_sobrenome"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:hint="@string/txt_sobrenome" />
 
         <EditText
-            android:hint="Site"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
@@ -62,7 +61,8 @@
             android:layout_margin="10dp"
             android:id="@+id/formulario_site"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:hint="@string/txt_site" />
 
     </LinearLayout>
 
